@@ -1,0 +1,49 @@
+<html>
+
+  <head>
+    <link type="text/css" href="css/ui-lightness/jquery-ui-1.8.2.custom.css" rel="Stylesheet" />
+    <link href="css/popup.css" media="all" rel="stylesheet" type="text/css" />
+
+    <script src="js/jquery-1.4.2.js"></script>
+    <script src="js/jquery-ui-1.8.2.custom.min.js"></script>
+
+    <script src="js/utils.js"></script>
+    <script src="js/stocks.js"></script>
+  </head>
+
+  <body>
+
+    <img src="css/ui-lightness/images/ui-anim_basic_16x16.gif"
+         id="status" alt="Updating..." style="display: none;" />
+
+    <div id="usage">
+      Tip: Click on the change box to switch between percent and absolute.
+    </div>
+
+    <div id="stocks">
+      <ul>
+      </ul>
+    </div>
+
+    <div id="disclaimer">Quotes delayed by 20 minutes.</div>
+    <div id="last_update"></div>
+
+    <div id="chart" style="display: none;">
+      <!-- <form> -->
+      <!--   <div id="time"> -->
+      <!--     <input type="radio" id="today" name="radio"/> <label for="today">1d</label> -->
+      <!--     <input type="radio" id="lastWeek" name="radio" /> <label for="lastWeek">1w</label> -->
+      <!--     <input type="radio" id="threeMonths" name="radio" /> <label for="threeMonths">3m</label> -->
+      <!--     <input type="radio" id="sixMonths" name="radio" /> <label for="sixMonths">6m</label> -->
+      <!--     <input type="radio" id="lastYear" name="radio" /> <label for="lastYear">1y</label> -->
+      <!--   </div> -->
+      <!-- </form> -->
+    </div>
+
+    <div id="empty" style="display: none;">
+      Add some stocks in the <a href="options.html" target="_blank">options</a> menu
+    </div>
+
+  </body>
+
+</html>

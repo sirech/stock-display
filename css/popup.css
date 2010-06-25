@@ -1,0 +1,113 @@
+body {
+    width: 425px;
+    /* height: 900px; */
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#status {
+    float : right;
+}
+
+#stocks {
+    margin-bottom: 5px;    
+}
+
+#stocks ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.stock {
+    margin: 4px 0;
+    height: 22px;
+    padding: 2px 2px;
+    -webkit-border-radius: 5px;
+}
+
+.selected {
+    background: #F39814;
+    color: white;
+}
+
+.highlighted {
+    border-color: #F39814;
+}
+
+.stock_name {
+    overflow : hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    display : inline-block;
+    margin-left : 3px;
+    width : 250px; /* this sucks but I haven't found a better way */
+}
+
+.stock_price {
+    position : absolute;
+    right : 75px; /* .stock_chg (right + min-width + margin-left) */
+    display : inline;
+    /* margin-left : 3px; */
+    min-width: 60px;
+}
+
+/* Price change box */
+.stock_chg {
+    position : absolute;
+    right : 3px;
+    display : inline;
+    margin-right: 9px;
+    min-width: 60px;
+    text-align: center;
+    color: white;
+    -webkit-border-radius: 5px;
+    border-width: 1px;
+    border-color: black;
+    border-style: solid;
+}
+
+.up {
+    background-color: #3A932E; /* green */
+}
+
+.down {
+    background-color : #E46062; /* red */
+}
+
+.neutral {
+    background-color : black;
+}
+
+/* Charts */
+#chart {
+    padding : 5px 2px;
+    border-top: 1px solid #DDD;
+}
+
+#time {
+    margin : 0 auto;
+}
+
+#chart img {
+    width : 100%;
+/* max-height : 210px; */
+}
+
+/* Extra text */
+#usage {
+    font-style : italic;
+    font-size : 85%;
+    width: 90%;
+}
+
+#disclaimer {
+    font-style : italic;
+    font-size : 85%;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+#empty {
+    text-align: center;
+}

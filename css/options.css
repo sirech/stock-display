@@ -1,0 +1,51 @@
+#wrapper-settings {
+    width: 100%;
+    height: 100%;
+}
+
+#wrapper-settings #wrapper {
+    width: 482px;
+    height: 513px;
+    margin: 0 auto;
+}
+
+#wrapper {
+    padding: 10px;
+}
+
+#stocks_header, #stocks, #usage {
+    background-color: #fff;
+    /* overflow: auto; */
+    margin: 10px 0;
+    padding : 10px;
+    border: 2px solid #DDD;
+    -webkit-border-radius: 5px;
+}
+
+.example, #usage p {
+    font-style : italic;
+}
+
+#stocks ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.stock {
+    margin: 4px 0;
+    padding: 4px 0;
+    -webkit-border-radius: 5px;
+}
+
+.handle {
+    float : left;
+}
+
+.stock_id, .delete {
+    float : right;
+}
+
+.stock_name, .stock_id {
+    margin : 0 3px;
+}
