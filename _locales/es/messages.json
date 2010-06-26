@@ -1,11 +1,7 @@
 {
-    // Global
-
     "extension_description" : {
         "message" : "Muestra precios actualizados de valores e índices, nacionales e internacionales. La lista de valores es configurable. La información sale de Yahoo Finance."
     },
-
-    // Popup
 
     "title" : {
         "message" : "Mi cartera"
@@ -18,8 +14,6 @@
     "disclaimer" : {
         "message" : "Los precios tienen un retraso de 20 minutos"
     },
-
-    // Options
 
     "options_title" : {
         "message" : "$title$: opciones",

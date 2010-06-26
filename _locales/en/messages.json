@@ -1,6 +1,4 @@
 {
-    // Global
-
     "extension_name" : {
         "message" : "Stocks Display"
     },
@@ -8,8 +6,6 @@
     "extension_description" : {
         "message" : "Shows updated prices for stocks and indexes, including international ones. You can configure which stocks you want to see. The data is obtained from Yahoo Finance."
     },
-
-    // Popup
 
     "title" : {
         "message" : "My Stocks"
@@ -22,8 +18,6 @@
     "disclaimer" : {
         "message" : "Quotes delayed by 20 minutes"
     },
-
-    // Options
 
     "options_title" : {
         "message" : "$title$: options",
