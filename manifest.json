@@ -4,6 +4,11 @@
   "description": "__MSG_extension_description__",
 
   "default_locale": "en",
+  "icons" : {
+      "16" : "icon.png",
+      "48" : "icon.png",
+      "128" : "icon.png"
+  }
 
   "browser_action": {
     "default_icon": "images/icon.png", // better if 19x19
