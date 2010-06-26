@@ -1,0 +1,59 @@
+{
+    // Global
+
+    "extension_description" : {
+        "message" : "Muestra precios actualizados de valores e índices, nacionales e internacionales. La lista de valores es configurable. La información sale de Yahoo Finance."
+    },
+
+    // Popup
+
+    "title" : {
+        "message" : "Mi cartera"
+    },
+
+    "empty_add" : {
+        "message" : "Añade valores en la página de opciones"
+    },
+
+    "disclaimer" : {
+        "message" : "Los precios tienen un retraso de 20 minutos"
+    },
+
+    // Options
+
+    "options_title" : {
+        "message" : "$title$: opciones",
+        "placeholders" : {
+            "title" : {
+                "content" : "$1",
+                "example" : "El nombre de la extensión"
+            }
+        }
+    },
+
+    "start" : {
+        "message" : "¡Escribe!"
+    },
+
+    "example" : {
+        "message" : "por ej. $stock$",
+        "placeholders" : {
+            "stock" : {
+                "content" : "$1",
+                "example" : "Repsol"
+            }
+        }
+    },
+
+    "help_start" : {
+        "message" : "Empieza a escribir el nombre del valor, un menú con posibles opciones aparecerá."
+    },
+
+    "help_comp" : {
+        "message" : "Selecciona una opción para añadirla a la lista."
+    },
+
+    "help_drag" : {
+        "message" : "Arrastra un valor por la flecha para cambiar su posición en la lista. Haz click en la cruz para eliminarlo."
+    }
+}

@@ -38,6 +38,10 @@
     -webkit-border-radius: 5px;
 }
 
+.handle, .delete {
+    cursor : hand;
+}
+
 .handle {
     float : left;
 }

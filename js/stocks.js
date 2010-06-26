@@ -260,7 +260,7 @@ function showEmptyMsg() {
                 return false;
             }
         );
-    $('#usage').hide();
+    $('#title').hide();
     $('#disclaimer').hide();
     $('#last_update').hide();
 }
@@ -413,6 +413,11 @@ jQuery(
             function() {
                 $(this).fadeOut(2000);
             });
+
+        // i18n
+        $('#title').text(chrome.i18n.getMessage("title"));
+        $('#disclaimer').text(chrome.i18n.getMessage("disclaimer"));
+        $('#empty a').text(chrome.i18n.getMessage("empty_add"));
 
         if(prepareList()) {
 

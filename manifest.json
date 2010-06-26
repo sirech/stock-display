@@ -1,11 +1,13 @@
 {
-  "name": "Stock Display",
-  "version": "1.0.1",
-  "description": "Shows updated prices for stocks and indexes, including international ones. You can configure which stocks you want to see. The data is obtained from Yahoo Finance.",
+  "name": "__MSG_extension_name__",
+  "version": "1.2.1",
+  "description": "__MSG_extension_description__",
+
+  "default_locale": "en",
 
   "browser_action": {
     "default_icon": "images/icon.png", // better if 19x19
-    "default_title": "Stock Display",
+    "default_title": "__MSG_extension_name__",
     "popup": "popup.html"
   },
 

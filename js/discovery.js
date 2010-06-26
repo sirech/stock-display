@@ -142,9 +142,6 @@ function setupLookup() {
                         },
                         dataType: "jsonp",
                         jsonpCallback : "YAHOO.Finance.SymbolSuggest.ssCallback"
-                        // success : function (data, textStatus, xhr) {
-                        //     showResults(response, data);
-                        // }
                     });
                 YAHOO.Finance.SymbolSuggest.ssCallback = function(data) {
                     showResults(response, data.ResultSet.Result);
@@ -189,6 +186,14 @@ jQuery(
                 }
             })
             .disableSelection();
+
+        // i18n
+        document.title = chrome.i18n.getMessage("options_title", [chrome.i18n.getMessage("extension_name")]);
+        $('#stocks_header div #start').text(chrome.i18n.getMessage("start"));
+        $('#stocks_header div #search_field').val(chrome.i18n.getMessage("example", ["Apple"]));
+        $('#usage #help_start').text(chrome.i18n.getMessage("help_start"));
+        $('#usage #help_comp').text(chrome.i18n.getMessage("help_comp"));
+        $('#usage #help_drag').text(chrome.i18n.getMessage("help_drag"));
 
         unpersist();
         setupLookup();

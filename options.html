@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>Stock Display options</title>
+    <title></title>
 
     <link type="text/css" href="css/ui-lightness/jquery-ui-1.8.2.custom.css" rel="Stylesheet" />
     <link href="css/options.css" media="all" rel="stylesheet" type="text/css" />
@@ -21,8 +21,8 @@
         <div id="stocks_header">
 
           <div class="ui-widget">
-            <label for="search_field">Start typing!</label>
-            <input id="search_field" class="example" value="e.g Apple">
+            <label id="start" for="search_field"></label>
+            <input id="search_field" class="example">
           </div>
 
         </div>
@@ -33,11 +33,9 @@
         </div>
 
         <div id="usage">
-          <p>Start writing the name of the stock, a dropdown menu with
-            possible completions will appear.</p>
-          <p>Select a completion to add it to the list.</p>
-          <p>Drag a stock by the arrow to change its position in the
-            list. Click on the cross to delete it.</p>
+          <p id="help_start"></p>
+          <p id="help_comp"></p>
+          <p id="help_drag"></p>
         </div>
       </div>
     </div>

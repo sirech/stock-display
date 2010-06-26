@@ -1,0 +1,63 @@
+{
+    // Global
+
+    "extension_name" : {
+        "message" : "Stock Display"
+    },
+
+    "extension_description" : {
+        "message" : "Shows updated prices for stocks and indexes, including international ones. You can configure which stocks you want to see. The data is obtained from Yahoo Finance."
+    },
+
+    // Popup
+
+    "title" : {
+        "message" : "My Stocks"
+    },
+
+    "empty_add" : {
+        "message" : "Add some stocks in the options page"
+    },
+
+    "disclaimer" : {
+        "message" : "Quotes delayed by 20 minutes"
+    },
+
+    // Options
+
+    "options_title" : {
+        "message" : "$title$: options",
+        "placeholders" : {
+            "title" : {
+                "content" : "$1",
+                "example" : "The name of the extension"
+            }
+        }
+    },
+
+    "start" : {
+        "message" : "Start typing!"
+    },
+
+    "example" : {
+        "message" : "e.g. $stock$",
+        "placeholders" : {
+            "stock" : {
+                "content" : "$1",
+                "example" : "Apple"
+            }
+        }
+    },
+
+    "help_start" : {
+        "message" : "Start writing the name of the stock, a dropdown menu with possible completions will appear."
+    },
+
+    "help_comp" : {
+        "message" : "Select a completion to add it to the list."
+    },
+
+    "help_drag" : {
+        "message" : "Drag a stock by the arrow to change its position in the list. Click on the cross to delete it."
+    }
+}
