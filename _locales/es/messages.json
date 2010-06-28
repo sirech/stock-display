@@ -3,6 +3,10 @@
         "message" : "Muestra precios actualizados de valores e índices, nacionales e internacionales. La lista de valores es configurable. La información sale de Yahoo Finance."
     },
 
+    "give_title" : {
+        "message" : "Nombre para tu cartera"
+    },
+
     "title" : {
         "message" : "Mi cartera"
     },

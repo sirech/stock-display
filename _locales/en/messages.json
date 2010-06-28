@@ -7,6 +7,10 @@
         "message" : "Shows updated prices for stocks and indexes, including international ones. You can configure which stocks you want to see. The data is obtained from Yahoo Finance."
     },
 
+    "give_title" : {
+        "message" : "Name for your portfolio"
+    },
+
     "title" : {
         "message" : "My Stocks"
     },
