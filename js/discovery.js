@@ -1,5 +1,7 @@
 /*jslint white: false, onevar: true, undef: true, nomen: true, eqeqeq: true, strict: true */
-/*global localStorage, $, jQuery, loadStocks, storeStocks, stockConfigTemplate */
+/*global localStorage, $, jQuery, loadStocks, storeStocks,
+ getDefaultTitle, getTitle,
+ stockConfigTemplate, chrome, document */
 "use strict";
 
 // Configuration
@@ -15,6 +17,51 @@ var YAHOO = {
         SymbolSuggest : {}
     }
 };
+
+// Title
+
+/*
+ * Restores the saved title for the portfolio, and sets up the handler
+ * to fill it out.
+ */
+function setupTitle() {
+
+    // Title field
+    var title = $('#title div #title_field');
+    title.val(getTitle());
+
+    if(title.val() != getDefaultTitle()) {
+        title.removeClass('example');
+    }
+
+    title.focus(
+        function () {
+            if (title.val() === getDefaultTitle()) {
+                title.removeClass('example').val("");
+            }
+        }
+    ).blur(
+        function () {
+            if(title.val() === "") {
+                title.addClass('example').val(getDefaultTitle());
+            }
+        }
+    ).keyup(
+        function () {
+            localStorage.title = title.val();
+        });
+
+
+    // Search field
+    $('#search_field').focus(
+        function (event) {
+            $(this).removeClass('example').val("");
+        }
+    ).blur(
+        function () {
+            $(this).addClass('example').val(chrome.i18n.getMessage("example", ["Apple"]));
+        });
+}
 
 // Save&Load settings
 
@@ -172,12 +219,6 @@ function setupLookup() {
 jQuery(
     function () {
 
-        $('#search_field').focus(
-            function (event) {
-                $(this).removeClass('example').val("");
-            }
-        );
-
         $('#stocks ul').sortable(
             {
                 handle : ".handle",
@@ -189,12 +230,14 @@ jQuery(
 
         // i18n
         document.title = chrome.i18n.getMessage("options_title", [chrome.i18n.getMessage("extension_name")]);
+        $('#title div #give_title').text(chrome.i18n.getMessage("give_title"));
         $('#stocks_header div #start').text(chrome.i18n.getMessage("start"));
         $('#stocks_header div #search_field').val(chrome.i18n.getMessage("example", ["Apple"]));
         $('#usage #help_start').text(chrome.i18n.getMessage("help_start"));
         $('#usage #help_comp').text(chrome.i18n.getMessage("help_comp"));
         $('#usage #help_drag').text(chrome.i18n.getMessage("help_drag"));
 
+        setupTitle();
         unpersist();
         setupLookup();
     }

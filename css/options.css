@@ -13,7 +13,7 @@
     padding: 10px;
 }
 
-#stocks_header, #stocks, #usage {
+#title, #stocks_header, #stocks, #usage {
     background-color: #fff;
     /* overflow: auto; */
     margin: 10px 0;

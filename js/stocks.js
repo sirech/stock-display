@@ -1,5 +1,6 @@
 /*jslint white: false, onevar: true, undef: true, nomen: true, eqeqeq: true, strict: true */
-/*global localStorage, $, jQuery, loadStocks, stockTemplate, swap, toggleKey, getBoolKey, window, chrome, Image */
+/*global localStorage, $, jQuery, loadStocks, stockTemplate, getTitle,
+ swap, toggleKey, getBoolKey, window, chrome, Image */
 "use strict";
 
 // Configuration
@@ -415,7 +416,7 @@ jQuery(
             });
 
         // i18n
-        $('#title').text(chrome.i18n.getMessage("title"));
+        $('#title').text(getTitle());
         $('#disclaimer').text(chrome.i18n.getMessage("disclaimer"));
         $('#empty a').text(chrome.i18n.getMessage("empty_add"));
 

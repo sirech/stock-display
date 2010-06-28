@@ -1,5 +1,5 @@
 /*jslint white: false, onevar: true, undef: true, nomen: true, eqeqeq: true, strict: true */
-/*global localStorage, $, jQuery */
+/*global localStorage, $, jQuery, chrome */
 "use strict";
 
 /**
@@ -123,4 +123,23 @@ function toggleKey(elem, key) {
  */
 function getBoolKey(elem, key) {
     return elem.data(key) || false;
+}
+
+/**
+ * Gets the default localized title assigned to the portfolio.
+ *
+ * @return {String} the default title for the portfolio.
+ */
+function getDefaultTitle() {
+    return  chrome.i18n.getMessage("title");
+}
+
+/**
+ * Gets the title for the portfolio.
+ *
+ * @return {String} the stored title for the portfolio, or a default
+ * one if no title exists.
+ */
+function getTitle() {
+    return localStorage.title || getDefaultTitle();
 }
