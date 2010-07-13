@@ -48,7 +48,7 @@ body {
 
 .stock_price {
     position : absolute;
-    right : 75px; /* .stock_chg (right + min-width + margin-left) */
+    right : 80px; /* .stock_chg (right + min-width + margin-left) */
     display : inline;
     /* margin-left : 3px; */
     min-width: 60px;
