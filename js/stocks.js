@@ -256,7 +256,7 @@ function showEmptyMsg() {
     $('#empty').show().
         find('a').click(
             function () {
-                window.open(chrome.extensions.getURL('options.html'));
+                window.open(chrome.extension.getURL('options.html'));
                 window.close();
                 return false;
             }
@@ -416,7 +416,24 @@ jQuery(
             });
 
         // i18n
-        $('#title').text(getTitle());
+        $('#title')
+            .click(
+                function () {
+                    window.open(chrome.extension.getURL('standalone.html'));
+                    window.close();
+                    return false;
+                })
+            .mouseenter(
+                function () {
+                    $(this).addClass('title_highlight');
+                    return false;
+                })
+            .mouseleave(
+                function () {
+                    $(this).removeClass('title_highlight');
+                    return false;
+                })
+            .text(getTitle());
         $('#disclaimer').text(chrome.i18n.getMessage("disclaimer"));
         $('#empty a').text(chrome.i18n.getMessage("empty_add"));
 

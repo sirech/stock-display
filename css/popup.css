@@ -11,7 +11,7 @@ body {
 
 #stocks {
     margin-top: 5px;
-    margin-bottom: 5px;    
+    margin-bottom: 5px;
 }
 
 #stocks ul {
@@ -101,6 +101,11 @@ body {
     width: 90%;
     font-weight: bold;
     text-align: center;
+    cursor: hand;
+}
+
+.title_highlight {
+    font-style : italic;
 }
 
 #disclaimer {
