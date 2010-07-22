@@ -77,8 +77,8 @@ function stockTemplate() {
     template = $('<li></li>')
         .addClass('stock ui-state-default')
         .append(name)
-        .append(price)
         .append(chg)
+        .append(price)
         .hide();
 
     return template;
