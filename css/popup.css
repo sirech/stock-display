@@ -86,8 +86,17 @@ body {
     border-top: 1px solid #DDD;
 }
 
-#time {
-    margin : 0 auto;
+#time_options {
+    width: 50%;
+    margin: 3px auto;
+}
+
+#time_options li {
+    display: inline-block;
+    margin-left: 4px;
+    padding: 2px;
+    -webkit-border-radius: 5px;
+    cursor: hand;
 }
 
 #chart img {
