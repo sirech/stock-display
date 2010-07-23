@@ -48,20 +48,17 @@ body {
 
 .stock_price {
     float: right;
-    /* position : relative; */
-    right : 80px; /* .stock_chg (right + min-width + margin-left) */
     display : inline;
-    /* margin-left : 3px; */
+    margin-left : 3px;
     min-width: 60px;
 }
 
 /* Price change box */
 .stock_chg {
     float : right;
-    /* position : relative; */
-    right : 3px;
     display : inline;
-    margin-right: 9px;
+    margin-left : 6px;
+    margin-right: 6px;
     min-width: 60px;
     text-align: center;
     color: white;

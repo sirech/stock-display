@@ -433,6 +433,7 @@ jQuery(
                     $(this).removeClass('title_highlight');
                     return false;
                 })
+            .attr('title', chrome.i18n.getMessage("help_standalone"))
             .text(getTitle());
         $('#disclaimer').text(chrome.i18n.getMessage("disclaimer"));
         $('#empty a').text(chrome.i18n.getMessage("empty_add"));
