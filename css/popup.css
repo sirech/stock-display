@@ -11,7 +11,7 @@ body {
 
 #stocks {
     margin-top: 5px;
-    margin-bottom: 5px;    
+    margin-bottom: 5px;
 }
 
 #stocks ul {
@@ -47,19 +47,18 @@ body {
 }
 
 .stock_price {
-    position : absolute;
-    right : 80px; /* .stock_chg (right + min-width + margin-left) */
+    float: right;
     display : inline;
-    /* margin-left : 3px; */
+    margin-left : 3px;
     min-width: 60px;
 }
 
 /* Price change box */
 .stock_chg {
-    position : absolute;
-    right : 3px;
+    float : right;
     display : inline;
-    margin-right: 9px;
+    margin-left : 6px;
+    margin-right: 6px;
     min-width: 60px;
     text-align: center;
     color: white;
@@ -87,8 +86,17 @@ body {
     border-top: 1px solid #DDD;
 }
 
-#time {
-    margin : 0 auto;
+#time_options {
+    width: 50%;
+    margin: 3px auto;
+}
+
+#time_options li {
+    display: inline-block;
+    margin-left: 4px;
+    padding: 2px;
+    -webkit-border-radius: 5px;
+    cursor: hand;
 }
 
 #chart img {
@@ -101,6 +109,11 @@ body {
     width: 90%;
     font-weight: bold;
     text-align: center;
+    cursor: hand;
+}
+
+.title_highlight {
+    font-style : italic;
 }
 
 #disclaimer {

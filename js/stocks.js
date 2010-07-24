@@ -133,17 +133,12 @@ function buildChartRequest(id, time) {
 function showChart(id) {
     var time, img;
 
-    time = localStorage.time || app.chartArguments.today;
-    // $('#chart form #time')
-    //     .buttonset()
-    //     .data(id);
+    time = app.chartArguments[localStorage.time] || app.chartArguments.today;
 
-    // $('#chart form #time input').click(
-    //     function() {
-    //         localStorage.time = app.chartArguments[$(this).attr('id')];
-    //         showChart(id);
-    //     }
-    // );
+    $('#chart').data('id', id);
+    $('#chart ul')
+        .find('#' + localStorage.time)
+        .addClass('ui-state-active').siblings().removeClass('ui-state-active');
 
     img = new Image();
     img.src = buildChartRequest(id, time);
@@ -256,7 +251,7 @@ function showEmptyMsg() {
     $('#empty').show().
         find('a').click(
             function () {
-                window.open(chrome.extensions.getURL('options.html'));
+                window.open(chrome.extension.getURL('options.html'));
                 window.close();
                 return false;
             }
@@ -416,9 +411,37 @@ jQuery(
             });
 
         // i18n
-        $('#title').text(getTitle());
+        $('#title')
+            .click(
+                function () {
+                    window.open(chrome.extension.getURL('standalone.html'));
+                    window.close();
+                    return false;
+                })
+            .mouseenter(
+                function () {
+                    $(this).addClass('title_highlight');
+                    return false;
+                })
+            .mouseleave(
+                function () {
+                    $(this).removeClass('title_highlight');
+                    return false;
+                })
+            .attr('title', chrome.i18n.getMessage("help_standalone"))
+            .text(getTitle());
         $('#disclaimer').text(chrome.i18n.getMessage("disclaimer"));
         $('#empty a').text(chrome.i18n.getMessage("empty_add"));
+
+        // time charts
+        $('#time_options li')
+            .addClass('ui-state-default')
+            .click(
+                function() {
+                    localStorage.time = $(this).attr('id');
+                    showChart($('#chart').data('id'));
+                    return false;
+                });
 
         if(prepareList()) {
 

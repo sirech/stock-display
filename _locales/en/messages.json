@@ -15,6 +15,10 @@
         "message" : "My Stocks"
     },
 
+    "help_standalone" : {
+        "message" : "Click here to get to show your stocks in a new tab"
+    },
+
     "empty_add" : {
         "message" : "Add some stocks in the options page"
     },

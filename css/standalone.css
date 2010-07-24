@@ -1,0 +1,14 @@
+body {
+    width: auto;
+}
+
+#main {
+    width: 425px;
+    margin: 0 auto;
+}
+
+#chart {
+    width: 620px;
+    height: 410px;
+    margin: 0 auto;
+}

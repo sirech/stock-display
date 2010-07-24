@@ -11,6 +11,10 @@
         "message" : "Mi cartera"
     },
 
+    "help_standalone" : {
+        "message" : "Haz click aquí para mostrar tus valores en una nueva pestaña"
+    },
+
     "empty_add" : {
         "message" : "Añade valores en la página de opciones"
     },
