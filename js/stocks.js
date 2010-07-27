@@ -1,6 +1,6 @@
 /*jslint white: false, onevar: true, undef: true, nomen: true, eqeqeq: true, strict: true */
 /*global localStorage, $, jQuery, loadStocks, stockTemplate, getTitle,
- swap, toggleKey, getBoolKey, window, chrome, Image */
+ swap, toggleKey, getBoolKey, window, chrome, Image, Math */
 "use strict";
 
 // Configuration
@@ -116,21 +116,25 @@ function refresh(stocks) {
  * @return {String} the url request.
  */
 function buildChartRequest(id, time) {
-    var url = "http://ichart.finance.yahoo.com/";
+    var extra, url = "http://ichart.finance.yahoo.com/";
     if(time === app.chartArguments.today || time === app.chartArguments.lastWeek) {
         url += time + '?s=';
+        extra = '&';
     } else {
         url += 'c/' + time + '/';
+        extra = '?';
     }
-    return url + id;
+    return url + id + extra + Math.floor(Math.random() * 1000000);
 }
 
 /**
  * Shows a chart for the given ticker.
  *
  * @param {String} id The id of the stock that is to be displayed.
+ * @param {boolean} dontSlide whether the chart should have an effect
+ * when presented or not.
  */
-function showChart(id) {
+function showChart(id, dontSlide) {
     var time, img;
 
     time = app.chartArguments[localStorage.time] || app.chartArguments.today;
@@ -144,7 +148,11 @@ function showChart(id) {
     img.src = buildChartRequest(id, time);
     img.onload = function () {
         $('#chart img').remove();
-        $('#chart').append(img).effect('slide');
+        if(dontSlide) {
+            $('#chart').append(img);
+        } else {
+            $('#chart').append(img).effect('slide');
+        }
     };
 }
 
@@ -239,9 +247,9 @@ function present(response) {
         }
     );
 
-    // $('#last_update')
-    //     .text(yahooTimeToDate(dataArray[i-1][app.format.last_time]).toLocaleTimeString().slice(0,-3))
-    //     .fadeIn();
+    if($('#chart img').length != 0) {
+        showChart($('#chart').data('id'), true);
+    }
 }
 
 /**
