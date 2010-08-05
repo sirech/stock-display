@@ -122,8 +122,8 @@ function removeStock(stockElem) {
  */
 function addStock(stock, shouldPersist) {
     var stockElem = config.template.clone();
-    stockElem.find('.stock_name').text(stock.name);
-    stockElem.find('.stock_id').text(stock.id);
+    stockElem.find('.stock_name').html(stock.name);
+    stockElem.find('.stock_id').html(stock.id);
 
     stockElem.find('.delete').click(
         function (e) {
