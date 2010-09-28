@@ -10,6 +10,7 @@ var app = {
     // object with user-friendly names for the modifiers.
     modifiers : {
         name : 'n',
+        symbol : 's',
         last_price : 'l1',
         last_time : 't1',
         percent_change : 'p2',
@@ -51,14 +52,16 @@ function buildModifiers() {
         name : 1,
         last_price : 2,
         percent_change : 3,
-        change : 4
+        change : 4,
+        symbol : 5
     };
 
     return app.modifiers.last_time +
         app.modifiers.name +
         app.modifiers.last_price +
         app.modifiers.percent_change +
-        app.modifiers.change;
+        app.modifiers.change +
+        app.modifiers.symbol;
 }
 
 /**
@@ -229,21 +232,30 @@ function present(response) {
     main_price = display_price_chg ? app.format.change : app.format.percent_change;
     alt_price =  display_price_chg ? app.format.percent_change : app.format.change;
 
-    // TODO: check if names match
     $('#stocks ul .stock').each(
         function (index, elem) {
             var row = dataArray[i];
-            price_class = row[main_price].charAt(0) === '+' ? 'up'
-                : row[main_price].charAt(0) === '-' ? 'down' : 'neutral';
+            if(row[app.format.symbol] === $(elem).data('id')) {
 
-            $(elem).find('.stock_price').text(row[app.format.last_price]);
-            $(elem).find('.stock_chg')
-                .removeClass('up down neutral')
-                .addClass(price_class)
-                .data('alt', row[alt_price])
-                .text(row[main_price]);
+                price_class = row[main_price].charAt(0) === '+' ? 'up'
+                    : row[main_price].charAt(0) === '-' ? 'down' : 'neutral';
 
-            i++;
+                $(elem).find('.stock_price').text(row[app.format.last_price]);
+                $(elem).find('.stock_chg')
+                    .removeClass('up down neutral')
+                    .addClass(price_class)
+                    .data('alt', row[alt_price])
+                    .text(row[main_price]);
+
+                i++;
+            } else {
+                $(elem).find('.stock_price').text('-');
+                $(elem).find('.stock_chg')
+                    .removeClass('up down neutral')
+                    .addClass('neutral')
+                    .data('alt', '-')
+                    .text('-');
+            }
         }
     );
 
