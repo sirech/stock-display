@@ -3,12 +3,32 @@
 "use strict";
 
 /**
+ * Stores the information contained in data, using the given key.
+ *
+ * @param {String} key the id for the data
+ * @param {String} data the data in string format.
+ */
+function store(key, data) {
+    localStorage.setItem(key,data);
+}
+
+/**
+ * Retrieves the information identified by the given key.
+ *
+ * @param {String} key the id for the data
+ * @return {String} the data in string format
+ */
+function load(key) {
+    return localStorage.getItem(key);
+}
+
+/**
  * Stores the array containing the stock objects to local storage.
  *
  * @param {Array} stocks the array of stock objects.
  */
 function storeStocks(stocks) {
-    localStorage.stocks = JSON.stringify(stocks);
+    store('stocks', JSON.stringify(stocks));
 }
 
 /**
@@ -17,7 +37,7 @@ function storeStocks(stocks) {
  * @return {Array} the array of stock objects.
  */
 function loadStocks() {
-    var json = localStorage.stocks;
+    var json = load('stocks');
 
     if (json === undefined) {
         return [];
@@ -141,5 +161,5 @@ function getDefaultTitle() {
  * one if no title exists.
  */
 function getTitle() {
-    return localStorage.title || getDefaultTitle();
+    return load('title') || getDefaultTitle();
 }

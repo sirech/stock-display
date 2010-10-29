@@ -1,5 +1,5 @@
 /*jslint white: false, onevar: true, undef: true, nomen: true, eqeqeq: true, strict: true */
-/*global localStorage, $, jQuery, loadStocks, stockTemplate, getTitle,
+/*global $, jQuery, load, store, loadStocks, stockTemplate, getTitle,
  swap, toggleKey, getBoolKey, window, chrome, Image, Math */
 "use strict";
 
@@ -140,11 +140,11 @@ function buildChartRequest(id, time) {
 function showChart(id, dontSlide) {
     var time, img;
 
-    time = app.chartArguments[localStorage.time] || app.chartArguments.today;
+    time = app.chartArguments[load('time')] || app.chartArguments.today;
 
     $('#chart').data('id', id);
     $('#chart ul')
-        .find('#' + localStorage.time)
+        .find('#' + load('time'))
         .addClass('ui-state-active').siblings().removeClass('ui-state-active');
 
     img = new Image();
@@ -458,7 +458,7 @@ jQuery(
             .addClass('ui-state-default')
             .click(
                 function() {
-                    localStorage.time = $(this).attr('id');
+                    store('time', $(this).attr('id'));
                     showChart($('#chart').data('id'));
                     return false;
                 });
