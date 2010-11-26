@@ -34,7 +34,10 @@ var app = {
         lastWeek : 'w',
         threeMonths : '3m',
         sixMonths : '6m',
-        lastYear : '1y'
+        lastYear : '1y',
+        twoYears : '2y',
+        fiveYears : '5y',
+        max : 'my'
     }
 };
 

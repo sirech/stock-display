@@ -39,7 +39,7 @@ function storeStocks(stocks) {
 function loadStocks() {
     var json = load('stocks');
 
-    if (json === undefined) {
+    if (json === undefined || json === null) {
         return [];
     }
 
