@@ -1,6 +1,6 @@
 /*jslint white: false, onevar: true, undef: true, nomen: true, eqeqeq: true, strict: true */
-/*global localStorage, $, jQuery, loadStocks, storeStocks,
- getDefaultTitle, getTitle,
+/*global $, jQuery, loadStocks, storeStocks,
+ getDefaultTitle, getTitle, load, store,
  stockConfigTemplate, chrome, document */
 "use strict";
 
@@ -30,7 +30,7 @@ function setupTitle() {
     var title = $('#title div #title_field');
     title.val(getTitle());
 
-    if(title.val() != getDefaultTitle()) {
+    if(title.val() !== getDefaultTitle()) {
         title.removeClass('example');
     }
 
@@ -48,7 +48,7 @@ function setupTitle() {
         }
     ).keyup(
         function () {
-            localStorage.title = title.val();
+            store('title', title.val());
         });
 
 
@@ -113,8 +113,8 @@ function removeStock(stockElem) {
 }
 
 /**
- * Adds a stock to the list. It persists it to localStorage too, if
- * the shouldPersist flag is true.
+ * Adds a stock to the list. It persists it too, if the shouldPersist
+ * flag is true.
  *
  * @param {Object} stock the stock to add.
  * @param {boolean} shouldPersist whether the stock should be
