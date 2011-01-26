@@ -428,6 +428,11 @@ jQuery(
                 $(this).show();
             });
 
+        $('#status').ajaxError(
+            function() {
+                $(this).hide();
+            });
+
         $('#status').ajaxStop(
             function() {
                 $(this).fadeOut(2000);
@@ -474,7 +479,7 @@ jQuery(
             window.setInterval(
                 function() {
                     refresh(app.stocks);
-                }, 30 * 1000);
+                }, 45 * 1000);
 
         }
     }
