@@ -218,6 +218,43 @@ var YAHOO = {
              });
      }
 
+     /**
+      * @return {String} a string containing the ids of all the stored
+      * stocks, escaped and separed by commas, so that they can be
+      * used as a query string
+      */
+     function stocksToQueryString() {
+         var stocks;
+
+         stocks = loadStocks();
+         return $.map(stocks,
+                      function(stock) {
+                          return escape(stock.id);
+                      }).join(',');
+     }
+
+     /**
+      * @return {String} an URL which can be used to import the
+      * current stocks
+      */
+     function createImportUrl(stocks) {
+         return chrome.extension.getURL('import.html') + '?' + 'stocks=' + stocks;
+     }
+
+     /**
+      * Initializes the export to bookmark functionality.
+      */
+     function setupBookmark() {
+         $('#export').click(
+             function() {
+                 var ids, url;
+                 ids = stocksToQueryString();
+                 url = createImportUrl(ids);
+                 $('#export_url').val(url);
+                 return false;
+             });
+     }
+
      jQuery(
          function () {
 
@@ -235,6 +272,8 @@ var YAHOO = {
              $('#title div #give_title').text(chrome.i18n.getMessage("give_title"));
              $('#stocks_header div #start').text(chrome.i18n.getMessage("start"));
              $('#stocks_header div #search_field').val(chrome.i18n.getMessage("example", ["Apple"]));
+             $('#bookmark #export').text(chrome.i18n.getMessage("export"));
+             $('#bookmark #help_export').text(chrome.i18n.getMessage("help_export"));
              $('#usage #help_start').text(chrome.i18n.getMessage("help_start"));
              $('#usage #help_comp').text(chrome.i18n.getMessage("help_comp"));
              $('#usage #help_drag').text(chrome.i18n.getMessage("help_drag"));
@@ -242,7 +281,8 @@ var YAHOO = {
              setupTitle();
              unpersist();
              setupLookup();
+             setupBookmark();
          }
      );
 
-})();
+ })();

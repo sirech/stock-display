@@ -37,6 +37,14 @@
         "message" : "¡Escribe!"
     },
 
+    "export" : {
+        "message" : "Exportar valores a una URL"
+    },
+
+    "help_export" : {
+        "message" : "La URL creada aquí se puede usar para recrear la lista de valores."
+    },
+
     "example" : {
         "message" : "por ej. $stock$",
         "placeholders" : {

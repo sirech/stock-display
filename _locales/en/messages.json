@@ -51,6 +51,14 @@
         }
     },
 
+    "export" : {
+        "message" : "Export Stocks to URL"
+    },
+
+    "help_export" : {
+        "message" : "The URL produced here can be used to recreate the list of stocks from scratch."
+    },
+
     "help_start" : {
         "message" : "Start writing the name of the stock, a dropdown menu with possible completions will appear."
     },
