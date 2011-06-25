@@ -245,14 +245,21 @@ var YAHOO = {
       * Initializes the export to bookmark functionality.
       */
      function setupBookmark() {
-         $('#export').button().click(
-             function() {
-                 var ids, url;
-                 ids = stocksToQueryString();
-                 url = createImportUrl(ids);
-                 $('#export_url').val(url);
-                 return false;
-             });
+         $('#export').
+             button({
+                        label: chrome.i18n.getMessage("export"),
+                        icons: {
+                            primary: "ui-icon-gear"
+                        }
+                    })
+             .click(
+                 function() {
+                     var ids, url;
+                     ids = stocksToQueryString();
+                     url = createImportUrl(ids);
+                     $('#export_url').val(url);
+                     return false;
+                 });
      }
 
      jQuery(
@@ -272,7 +279,6 @@ var YAHOO = {
              $('#title div #give_title').text(chrome.i18n.getMessage("give_title"));
              $('#stocks_header div #start').text(chrome.i18n.getMessage("start"));
              $('#stocks_header div #search_field').val(chrome.i18n.getMessage("example", ["Apple"]));
-             $('#bookmark #export').text(chrome.i18n.getMessage("export"));
              $('#bookmark #help_export').text(chrome.i18n.getMessage("help_export"));
              $('#usage #help_start').text(chrome.i18n.getMessage("help_start"));
              $('#usage #help_comp').text(chrome.i18n.getMessage("help_comp"));

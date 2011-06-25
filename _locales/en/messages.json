@@ -73,5 +73,25 @@
 
     "import_title" : {
         "message" : "Import Stocks from bookmark"
+    },
+
+    "import_empty" : {
+        "message" : "There are no stocks to import"
+    },
+
+    "import_error" : {
+        "message" : "An error happened. Please try again"
+    },
+
+    "import_before" : {
+        "message" : "The following stocks will be imported"
+    },
+
+    "import_finished" : {
+        "message" : "Stocks stored!"
+    },
+
+    "import" : {
+        "message" : "Import Stocks"
     }
 }

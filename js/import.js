@@ -29,7 +29,9 @@
          if (matches && matches.length == 2) {
              raw = matches[1].split(',');
              for(var i = 0; i < raw.length; i++) {
-                 stocks.push(decodeURI(raw[i]));
+                 if(raw[i] != "") {
+                     stocks.push(decodeURI(raw[i]));
+                 }
              }
          }
          return stocks;
@@ -135,7 +137,7 @@
      }
 
      function process(response) {
-         var stocks;
+         var stocks, existing;
          stocks = $.map(csvToArray(response),
                         function(stock) {
                             if(stock[0] === "") {
@@ -152,8 +154,10 @@
                              return(n);
                          });
 
+         existing = loadStocks();
+         stocks = existing.concat(stocks);
          storeStocks(stocks);
-         $('#notification').text('Stocks stored!');
+         $('#notification').text(chrome.i18n.getMessage("import_finished"));
      }
 
      function buildRequest(stocks) {
@@ -179,20 +183,30 @@
      function importStocks() {
          var stocks;
 
-         if(existingStocks()) {
-             $('#notification').text('There are already existing stocks');
-             return;
-         }
-
          stocks = parseStockList();
          presentStocks(stocks);
 
+         $('#notification').addClass('ui-state-highlight').text(chrome.i18n.getMessage("import_before"));
+         $('#import').
+             button({
+                        label: chrome.i18n.getMessage("import"),
+                        icons: {
+                            primary: "ui-icon-gear"
+                        }
+                    })
+             .click(
+                 function() {
+                     sendRequest(buildRequest(stocks));
+                     $(this).button('option', 'disabled', true);
+                     return false;
+                 });
+
          if(stocks.length == 0) {
-             $('#notification').text('There are no stocks to import');
+             $('#notification').addClass('ui-state-error').text(chrome.i18n.getMessage("import_empty"));
+             $('#stocks').hide();
+             $('#import').button('option', 'disabled', true);
              return;
          }
-
-         sendRequest(buildRequest(stocks));
      }
 
      jQuery(
@@ -210,6 +224,11 @@
              $('#status').ajaxStop(
                  function() {
                      $(this).fadeOut(2000);
+                 });
+
+             $('#notification').ajaxError(
+                 function() {
+                     $(this).addClass('ui-state-error').text(chrome.i18n.getMessage("import_error"));
                  });
 
              importStocks();

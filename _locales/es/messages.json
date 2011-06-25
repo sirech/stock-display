@@ -69,5 +69,25 @@
 
     "import_title" : {
         "message" : "Importa valores desde un marcador"
+    },
+
+    "import_empty" : {
+        "message" : "No hay ningún valor para importar"
+    },
+
+    "import_error" : {
+        "message" : "Ha habido un problema. Vuelve a intentarlo"
+    },
+
+    "import_before" : {
+        "message" : "Los siguientes valores serán importados"
+    },
+
+    "import_finished" : {
+        "message" : "Los valores se han guardado con éxito"
+    },
+
+    "import" : {
+        "message" : "Importar valores"
     }
 }

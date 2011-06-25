@@ -53,3 +53,7 @@
 .stock_name, .stock_id {
     margin : 0 3px;
 }
+
+#export_url {
+    width : 100%;
+}
