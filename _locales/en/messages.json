@@ -69,5 +69,9 @@
 
     "help_drag" : {
         "message" : "Drag a stock by the arrow to change its position in the list. Click on the cross to delete it."
+    },
+
+    "import_title" : {
+        "message" : "Import Stocks from bookmark"
     }
 }

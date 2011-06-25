@@ -124,6 +124,16 @@
          return( arrData );
      }
 
+     function presentStocks(stocks) {
+         var i, stockElem;
+
+         for (i = 0; i < stocks.length; i++) {
+             stockElem = stockTemplate().show();
+             stockElem.find('.stock_name').text(stocks[i]);
+             $('#stocks ul').append(stockElem);
+         }
+     }
+
      function process(response) {
          var stocks;
          stocks = $.map(csvToArray(response),
@@ -175,6 +185,7 @@
          }
 
          stocks = parseStockList();
+         presentStocks(stocks);
 
          if(stocks.length == 0) {
              $('#notification').text('There are no stocks to import');

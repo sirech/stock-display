@@ -245,7 +245,7 @@ var YAHOO = {
       * Initializes the export to bookmark functionality.
       */
      function setupBookmark() {
-         $('#export').click(
+         $('#export').button().click(
              function() {
                  var ids, url;
                  ids = stocksToQueryString();

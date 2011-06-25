@@ -65,5 +65,9 @@
 
     "help_drag" : {
         "message" : "Arrastra un valor por la flecha para cambiar su posición en la lista. Haz click en la cruz para eliminarlo."
+    },
+
+    "import_title" : {
+        "message" : "Importa valores desde un marcador"
     }
 }

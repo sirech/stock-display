@@ -3,6 +3,7 @@
     <link type="text/css"
           href="css/ui-lightness/jquery-ui-1.8.2.custom.css"
           rel="Stylesheet" />
+    <link href="css/import.css" media="all" rel="stylesheet" type="text/css" />
 
     <script src="js/jquery-1.4.2.min.js"></script>
     <script src="js/jquery-ui-1.8.2.custom.min.js"></script>
@@ -10,13 +11,24 @@
     <script src="js/utils.js"></script>
     <script src="js/import.js"></script>
 
+    <script>
+      document.title = chrome.i18n.getMessage("import_title");
+    </script>
   </head>
 
   <body>
 
-    <img src="css/ui-lightness/images/ui-anim_basic_16x16.gif"
-         id="status" alt="Updating..." style="display : none;" />
+    <div id="main">
+      <img src="css/ui-lightness/images/ui-anim_basic_16x16.gif"
+           id="status" alt="Updating..." style="display : none;" />
 
-    <div id="notification"></div>
+      <div id="notification"></div>
+
+      <div id="stocks">
+        <ul>
+        </ul>
+      </div>
+    </div>
+
   </body>
 </html>

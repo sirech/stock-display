@@ -1,0 +1,40 @@
+body {
+    width: auto;
+}
+
+#main {
+    width: 425px;
+    margin: 0 auto;
+}
+
+#stocks {
+    background-color: #fff;
+    /* overflow: auto; */
+    margin: 10px 0;
+    padding : 10px;
+    border: 2px solid #DDD;
+    -webkit-border-radius: 5px;
+}
+
+#stocks ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.stock {
+    margin: 4px 0;
+    height: 22px;
+    padding: 2px 2px;
+    cursor: hand;
+    -webkit-border-radius: 5px;
+}
+
+.stock_name {
+    overflow : hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    display : inline-block;
+    margin-left : 3px;
+    width : 250px; /* this sucks but I haven't found a better way */
+}
