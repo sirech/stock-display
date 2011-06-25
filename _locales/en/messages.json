@@ -51,6 +51,14 @@
         }
     },
 
+    "export" : {
+        "message" : "Export Stocks to URL"
+    },
+
+    "help_export" : {
+        "message" : "The URL produced here can be used to recreate the list of stocks from scratch."
+    },
+
     "help_start" : {
         "message" : "Start writing the name of the stock, a dropdown menu with possible completions will appear."
     },
@@ -61,5 +69,29 @@
 
     "help_drag" : {
         "message" : "Drag a stock by the arrow to change its position in the list. Click on the cross to delete it."
+    },
+
+    "import_title" : {
+        "message" : "Import Stocks from bookmark"
+    },
+
+    "import_empty" : {
+        "message" : "There are no stocks to import"
+    },
+
+    "import_error" : {
+        "message" : "An error happened. Please try again"
+    },
+
+    "import_before" : {
+        "message" : "The following stocks will be imported"
+    },
+
+    "import_finished" : {
+        "message" : "Stocks stored!"
+    },
+
+    "import" : {
+        "message" : "Import Stocks"
     }
 }

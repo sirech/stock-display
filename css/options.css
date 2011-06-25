@@ -13,7 +13,7 @@
     padding: 10px;
 }
 
-#title, #stocks_header, #stocks, #usage {
+#title, #stocks_header, #stocks, #usage, #bookmark {
     background-color: #fff;
     /* overflow: auto; */
     margin: 10px 0;
@@ -22,7 +22,7 @@
     -webkit-border-radius: 5px;
 }
 
-.example, #usage p {
+.example, #usage p, #bookmark p {
     font-style : italic;
 }
 
@@ -52,4 +52,8 @@
 
 .stock_name, .stock_id {
     margin : 0 3px;
+}
+
+#export_url {
+    width : 100%;
 }

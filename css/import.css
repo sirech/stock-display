@@ -1,0 +1,53 @@
+body {
+    width: auto;
+}
+
+#main {
+    width: 425px;
+    margin: 0 auto;
+}
+
+#status {
+    float : right;
+    vertical-align : middle;
+}
+
+#notification_area, #stocks, #bookmark {
+    background-color: #fff;
+    /* overflow: auto; */
+    margin: 10px 0;
+    padding : 10px;
+    border: 2px solid #DDD;
+    -webkit-border-radius: 5px;
+}
+
+#stocks ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#notification, .stock {
+    margin: 4px 0;
+    height: 22px;
+    padding: 2px 2px;
+    -webkit-border-radius: 5px;
+}
+
+#notification {
+    text-align : center
+}
+
+.stock_name {
+    overflow : hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    display : inline-block;
+    margin-left : 3px;
+    width : 250px; /* this sucks but I haven't found a better way */
+}
+
+#import {
+    margin-left : auto;
+    margin-right : auto;
+}
