@@ -1,16 +1,8 @@
 /*jslint white: false, onevar: true, undef: true, nomen: true, eqeqeq: true, strict: true */
-/*global $, jQuery, chrome, document */
+/*global $, jQuery, chrome, document, QUERY */
 "use strict";
 
 (function() {
-
-     /**
-      * @return {boolean} true if there are already stocks saved,
-      * false otherwise
-      */
-     function existingStocks() {
-         return loadStocks().length != 0;
-     }
 
      /**
       * Gets the query string of the page, and converts it to a list
@@ -37,95 +29,11 @@
          return stocks;
      }
 
-     // TODO: remove duplication
-
-     // Credit to http://stackoverflow.com/questions/1293147/javascript-code-to-parse-csv-data
-
      /**
-      * Parses a csv formated string into an array of arrays.
+      * Display the given list of stocks ids in the page.
       *
-      * @param {String} strData the csv text.
-      * @param {String} strDelimiter The delimiter. If no value is
-      * provided, comma is used.
+      * @param {Array} stocks the stocks to display, as strings
       */
-     function csvToArray( strData, strDelimiter ){
-         var objPattern, arrData, arrMatches, strMatchedDelimiter, strMatchedValue;
-
-         // Check to see if the delimiter is defined. If not,
-         // then default to comma.
-         strDelimiter = (strDelimiter || ",");
-
-         // Create a regular expression to parse the CSV values.
-         objPattern = new RegExp(
-             (
-                 // Delimiters.
-                 "(\\" + strDelimiter + "|\\r?\\n|\\r|^)" +
-
-                 // Quoted fields.
-                 "(?:\"([^\"]*(?:\"\"[^\"]*)*)\"|" +
-
-                 // Standard fields.
-                 "([^\"\\" + strDelimiter + "\\r\\n]*))"
-             ),
-             "gi"
-         );
-
-         // Create an array to hold our data. Give the array
-         // a default empty first row.
-         arrData = [[]];
-
-         // Create an array to hold our individual pattern
-         // matching groups.
-         arrMatches = null;
-
-         // Keep looping over the regular expression matches
-         // until we can no longer find a match.
-         while ((arrMatches = objPattern.exec( strData ))){
-
-             // Get the delimiter that was found.
-             strMatchedDelimiter = arrMatches[ 1 ];
-
-             // Check to see if the given delimiter has a length
-             // (is not the start of string) and if it matches
-             // field delimiter. If id does not, then we know
-             // that this delimiter is a row delimiter.
-             if (
-                 strMatchedDelimiter.length &&
-                     (strMatchedDelimiter !== strDelimiter)
-             ){
-
-                 // Since we have reached a new row of data,
-                 // add an empty row to our data array.
-                 arrData.push( [] );
-
-             }
-
-             // Now that we have our delimiter out of the way,
-             // let's check to see which kind of value we
-             // captured (quoted or unquoted).
-             if (arrMatches[ 2 ]){
-
-                 // We found a quoted value. When we capture
-                 // this value, unescape any double quotes.
-                 strMatchedValue = arrMatches[ 2 ].replace(
-                     new RegExp( "\"\"", "g" ),
-                     "\""
-                 );
-
-             } else {
-                 // We found a non-quoted value.
-                 strMatchedValue = arrMatches[ 3 ];
-             }
-
-             // Now that we have our value string, let's add
-             // it to the data array.
-             arrData[ arrData.length - 1 ].push( strMatchedValue );
-         }
-
-         // Return the parsed data.
-         return( arrData );
-     }
-
      function presentStocks(stocks) {
          var i, stockElem;
 
@@ -136,9 +44,12 @@
          }
      }
 
+     /**
+      * Reads the stocks from the response and persists them.
+      */
      function process(response) {
          var stocks, existing;
-         stocks = $.map(csvToArray(response),
+         stocks = $.map(QUERY.parseCsv(response),
                         function(stock) {
                             if(stock[0] === "") {
                                 return null;
@@ -150,6 +61,7 @@
                             };
                         });
 
+         // remove empty values
          stocks = $.grep(stocks, function(n, i) {
                              return(n);
                          });
@@ -158,19 +70,6 @@
          stocks = existing.concat(stocks);
          storeStocks(stocks);
          $('#notification').text(chrome.i18n.getMessage("import_finished"));
-     }
-
-     function buildRequest(stocks) {
-         return "http://download.finance.yahoo.com/d/quotes.csv?s=" +
-             stocks.join("+") +
-             "&f=" +
-             "ns";
-     }
-
-     function sendRequest(url) {
-         $.get(url, function (data) {
-                   process(data);
-               });
      }
 
      /**
@@ -196,7 +95,7 @@
                     })
              .click(
                  function() {
-                     sendRequest(buildRequest(stocks));
+                     QUERY.send(QUERY.build(stocks, QUERY.options('name', 'symbol')), process);
                      $(this).button('option', 'disabled', true);
                      return false;
                  });
