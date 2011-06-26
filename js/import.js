@@ -150,6 +150,7 @@
                             };
                         });
 
+         // remove empty values
          stocks = $.grep(stocks, function(n, i) {
                              return(n);
                          });
