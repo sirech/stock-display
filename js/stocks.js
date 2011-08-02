@@ -131,6 +131,7 @@
      function prepareStock(stock) {
          var stockElem = app.template.clone()
              .data('id', stock.id)
+             .attr('title', stock.id)
              .show();
          stockElem.find('.stock_name').text(stock.name);
 
