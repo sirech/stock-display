@@ -2,7 +2,7 @@
 /*global $, jQuery, chrome, document */
 "use strict";
 
-QUERY = function() {
+var QUERY = function() {
 
     /**
      * Object with user-friendly names for the modifiers.
