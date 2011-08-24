@@ -2,7 +2,7 @@
 /*global $, jQuery, chrome, document */
 "use strict";
 
-QUERY = function() {
+var QUERY = function() {
 
     /**
      * Object with user-friendly names for the modifiers.
@@ -95,6 +95,15 @@ QUERY = function() {
         return( arrData );
     }
 
+    // fix Dow Jones bug
+    function prepareId(id) {
+        if(id == '^DJI') {
+            id = 'INDU';
+        }
+
+        return id;
+    }
+
     return {
         /**
          * Builds the modifiers string from the given arguments. The
@@ -134,9 +143,9 @@ QUERY = function() {
             idArray = $.map(stocks,
                             function(stock) {
                                 if (typeof(stock) == 'string') {
-                                    return stock;
+                                    return prepareId(stock);
                                 } else if (typeof(stock) == 'object' && stock.hasOwnProperty('id')) {
-                                    return stock.id;
+                                    return prepareId(stock.id);
                                 } else {
                                     throw {
                                         name: 'TypeError',
