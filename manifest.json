@@ -1,6 +1,7 @@
 {
     "name": "__MSG_extension_name__",
-    "version": "1.4.4",
+    "version": "1.4.5",
+    "manifest_version" : 2,
     "description": "__MSG_extension_description__",
 
     "default_locale": "en",
@@ -13,7 +14,7 @@
     "browser_action": {
         "default_icon": "images/icon.png",
         "default_title": "__MSG_extension_name__",
-        "popup": "popup.html"
+        "default_popup": "popup.html"
     },
 
     "options_page": "options.html",
