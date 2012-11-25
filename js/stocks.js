@@ -311,6 +311,7 @@
                  });
 
              // i18n
+             document.title = chrome.i18n.getMessage("options_title", [chrome.i18n.getMessage("extension_name")]);
              $('#title')
                  .click(
                      function () {
