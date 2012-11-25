@@ -19,7 +19,8 @@
     "options_page": "options.html",
 
     "permissions": [
-        "http://*.finance.yahoo.com/",
-        "http://d.yimg.com/autoc.finance.yahoo.com/"
-    ]
+        "http://*.finance.yahoo.com/"
+    ],
+
+    "content_security_policy": "object-src 'self'; script-src 'self'; connect-src http://stockdisplay.hceris.com"
 }
