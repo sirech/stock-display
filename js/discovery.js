@@ -176,7 +176,7 @@
              {
                  source: function(request, response) {
                      $.get(
-                         "http://localhost:3023",
+                         "http://stockdisplay.hceris.com",
                          {
                              q : request.term
                          },
