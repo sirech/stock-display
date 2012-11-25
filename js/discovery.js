@@ -4,13 +4,6 @@
  stockConfigTemplate, chrome, document */
 "use strict";
 
-// Replicate yahoo object to receive results
-var YAHOO = {
-    Finance : {
-        SymbolSuggest : {}
-    }
-};
-
 (function() {
 
      // Configuration
@@ -182,19 +175,15 @@ var YAHOO = {
          $('#search_field').autocomplete(
              {
                  source: function(request, response) {
-                     $.ajax(
+                     $.get(
+                         "http://localhost:3023",
                          {
-                             type: "GET",
-                             url: "http://d.yimg.com/autoc.finance.yahoo.com/autoc",
-                             data : {
-                                 query : request.term
-                             },
-                             dataType: "jsonp",
-                             jsonpCallback : "YAHOO.Finance.SymbolSuggest.ssCallback"
-                         });
-                     YAHOO.Finance.SymbolSuggest.ssCallback = function(data) {
-                         showResults(response, data.ResultSet.Result);
-                     };
+                             q : request.term
+                         },
+                         function(data) {
+                             showResults(response, data);
+                         }
+                     );
                  },
                  select: function(event, ui) {
                      var stock = ui.item.value;
