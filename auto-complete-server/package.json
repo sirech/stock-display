@@ -1,0 +1,8 @@
+{
+    "name" : "auto-complete-server",
+    "version" : "0.0.1",
+    "dependencies" : {
+        "connect": "2.7.0",
+        "connect-queryparser": "1.0.0"
+    }
+}
