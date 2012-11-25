@@ -2,7 +2,6 @@
     "name" : "auto-complete-server",
     "version" : "0.0.1",
     "dependencies" : {
-        "connect": "2.7.0",
-        "superagent": "0.10.0"
+        "connect": "2.7.0"
     }
 }
