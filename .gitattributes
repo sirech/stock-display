@@ -3,3 +3,4 @@ js/discovery.js export-ignore
 js/utils.js export-ignore
 js/import.js export-ignore
 js/query.js export-ignore
+auto-complete-server/ export-ignore
