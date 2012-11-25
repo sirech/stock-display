@@ -26,7 +26,9 @@ var askYahoo = function(q, res) {
                 str = str.replace(callback + "(", "");
                 str = str.slice(0, str.length - 1);
                 var obj = JSON.parse(str);
-                res.writeHead(200, { 'Content-Type': 'application/json' });
+                res.writeHead(200, {
+                    'Access-Control-Allow-Origin' : '*',
+                    'Content-Type': 'application/json' });
                 res.end(JSON.stringify(obj.ResultSet.Result));
             });
         }).end();
