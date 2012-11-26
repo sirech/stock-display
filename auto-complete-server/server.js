@@ -35,7 +35,7 @@ var askYahoo = function(q, res) {
 };
 
 var server = connect().
-    use(connect.logger('dev')).
+    use(connect.logger('tiny')).
     use(connect.query()).
     use(function(req,res) {
         var q = req.query.q;
