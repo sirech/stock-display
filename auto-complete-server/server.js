@@ -1,10 +1,11 @@
 var connect = require('connect'),
-    http    = require('http');
+    http    = require('http'),
+    qs      = require('querystring');
 
 var callback = "YAHOO.Finance.SymbolSuggest.ssCallback";
 
 var askYahoo = function(q, res) {
-    var query = "callback=" + callback + "&query=" + q;
+    var query = "callback=" + callback + "&query=" + qs.escape(q);
     var headers = {
         host: "d.yimg.com",
         path: "/autoc.finance.yahoo.com/autoc" + "?" + query,
