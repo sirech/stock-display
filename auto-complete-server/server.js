@@ -18,19 +18,25 @@ var askYahoo = function(q, res) {
     http.request(
         headers
         , function(yahoo) {
-            var str = '';
-            yahoo.on('data', function (chunk) {
-                str += chunk;
-            });
-            yahoo.on('end', function () {
-                str = str.replace(callback + "(", "");
-                str = str.slice(0, str.length - 1);
-                var obj = JSON.parse(str);
-                res.writeHead(200, {
-                    'Access-Control-Allow-Origin' : '*',
-                    'Content-Type': 'application/json' });
-                res.end(JSON.stringify(obj.ResultSet.Result));
-            });
+
+	    if(yahoo.statusCode == 200) {
+              var str = '';
+              yahoo.on('data', function (chunk) {
+                  str += chunk;
+              });
+              yahoo.on('end', function () {
+                  str = str.replace(callback + "(", "");
+                  str = str.slice(0, str.length - 1);
+                  var obj = JSON.parse(str);
+                  res.writeHead(200, {
+                      'Access-Control-Allow-Origin' : '*',
+                      'Content-Type': 'application/json' });
+                  res.end(JSON.stringify(obj.ResultSet.Result));
+              });
+	    } else {
+	    	res.writeHead(yahoo.statusCode);
+		res.end();
+	    }
         }).end();
 };
 
